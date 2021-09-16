@@ -1,9 +1,19 @@
-import React from "react";
+import React from 'react';
+import { ThemeProvider } from 'styled-components';
 
-import "./App.css";
+import { Default } from 'templates';
+import theme from 'assets/theme';
+
+import Routes from './Routes';
 
 const App: React.FC = () => {
-  return null;
+  return (
+    <ThemeProvider theme={theme}>
+      <Default>
+        <Routes />
+      </Default>
+    </ThemeProvider>
+  );
 };
 
 export default App;
