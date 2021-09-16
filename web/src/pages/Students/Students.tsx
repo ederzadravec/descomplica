@@ -1,12 +1,15 @@
 import React from 'react';
+import { Switch, Route } from 'react-router-dom';
 
-import { PageTitle } from 'components';
+import List from './List';
+import Form from './Form';
 
 const Students: React.FC = () => {
   return (
-    <>
-      <PageTitle title="Estudantes" buttons={[{ label: 'Novo Usuário', onClick: () => {} }]} />
-    </>
+    <Switch>
+      <Route path="/students" component={List} exact />
+      <Route path="/students/new" component={Form} exact />
+    </Switch>
   );
 };
 
