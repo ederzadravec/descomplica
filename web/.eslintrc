@@ -1,0 +1,28 @@
+{
+  "extends": ["react-app", "react-app/jest"],
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "env": {
+    "commonjs": true,
+    "browser": true,
+    "es6": true
+  },
+  "plugins": ["import", "react", "react-hooks"],
+  "rules": {
+    "keyword-spacing": 2,
+    "react-hooks/rules-of-hooks": "off",
+    "import/no-anonymous-default-export": [
+      "error",
+      {
+        "allowArray": true,
+        "allowArrowFunction": true,
+        "allowAnonymousClass": true,
+        "allowAnonymousFunction": true,
+        "allowCallExpression": true, // The true value here is for backward compatibility
+        "allowLiteral": true,
+        "allowObject": true
+      }
+    ]
+  }
+}

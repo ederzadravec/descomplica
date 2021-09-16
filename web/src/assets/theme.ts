@@ -39,5 +39,6 @@ const theme: DefaultTheme = {
 };
 
 export type COLORS = 'primary' | 'success' | 'info' | 'error';
+export type SIZES = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 export default theme;

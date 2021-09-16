@@ -35,7 +35,7 @@ interface IForm {
   setValues: (fields: { [field: string]: TFieldValue }) => void;
   setErrors: (fields: { [field: string]: string }) => void;
 
-  trySave: (callback: (e: any) => void) => (e: any) => boolean;
+  trySave: (callback: (e?: any) => void) => (e?: any) => boolean;
   clear: (initialValues: { [field: string]: TFieldValue }) => void;
 }
 
@@ -64,8 +64,8 @@ const useForm = ({ initialValues = {}, validations = {} }: IFormProps): [IForm, 
     return Object.keys(validations).reduce((acc, key) => {
       const error = R.reduceWhile(
         (acc) => !acc,
-        (acc, validation) => (validation[0](getValue(key, data), data) ? validation[1] : acc),
-        null,
+        (acc, validation) => (validation[0](getValue(key, data), data) ? validation[1] as string : acc),
+        '',
         validations[key]
       );
 
@@ -108,8 +108,8 @@ const useForm = ({ initialValues = {}, validations = {} }: IFormProps): [IForm, 
   };
 
   const trySave =
-    (callback = (e: any) => {}) =>
-    (e: any) => {
+    (callback = (e?: any) => {}) =>
+    (e?: any) => {
       e?.preventDefault();
       e?.stopPropagation();
 

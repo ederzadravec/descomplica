@@ -21,7 +21,7 @@ const FormGrid: React.FC<ITableGrid> = ({
   title,
   children,
   noMargin,
-  loading,
+  loading = false,
   onSubmit,
   ...props
 }) => {

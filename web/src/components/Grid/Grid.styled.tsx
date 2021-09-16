@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { SIZES } from 'assets/theme';
+
 import * as Types from './types';
 
 export const Container = styled.div<{ spacing: number }>`
@@ -26,7 +28,9 @@ export const Content = styled.div<{ size: Types.TGridSize; spacing: number }>`
     max-width: ${(100 / 12) * (size.xl || size.lg || size.md || size.sm || size.xs || 12)}%;
 
     ${Object.keys(size)
-      .map((key) => theme.screens[key](`max-width:${(100 / 12) * size[key]}%`, size[key]))
+      .map((key: string) =>
+        theme.screens[key as SIZES](`max-width:${(100 / 12) * (size[key as SIZES] || 12)}%`)
+      )
       .join(';')}
   `};
 `;

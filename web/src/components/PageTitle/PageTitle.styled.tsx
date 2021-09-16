@@ -16,4 +16,8 @@ export const Title = styled.span`
 
 export const Buttons = styled.div`
   margin-left: auto;
+
+  * + * {
+    margin-left: 8px;
+  }
 `;
