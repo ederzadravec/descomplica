@@ -9,8 +9,8 @@ const theme: DefaultTheme = {
   palette: {
     text,
     primary: {
-      main: '#aaa',
-      text: '#bbb',
+      main: '#00ADEF',
+      text: text.light,
     },
     success: {
       main: '#2ABC85',
@@ -37,5 +37,7 @@ const theme: DefaultTheme = {
     xl: (data: string) => `@media only screen and (min-width: 1200px) { ${data} }`,
   },
 };
+
+export type COLORS = 'primary' | 'success' | 'info' | 'error';
 
 export default theme;
