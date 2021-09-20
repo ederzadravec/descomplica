@@ -1,0 +1,28 @@
+{
+  "extends": "fastify-tsconfig",
+  "compilerOptions": {
+    "target": "es2018",
+    "module": "commonjs",
+    "lib": ["es2018", "esnext.asynciterable"],
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "outDir": "dist",
+    "typeRoots": ["./node_modules/@types", "./src/@types"],
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
+    "strict": false,
+    "baseUrl": "./src",
+    "sourceMap": true,
+    "skipLibCheck": true,
+    "paths": {
+      "types/*": ["@types/*"],
+      "config/*": ["config/*"],
+      "resolvers/*": ["resolvers/*"],
+      "schemas/*": ["schemas/*"],
+      "utils/*": ["utils/*"]
+    }
+  },
+  "include": ["./src/**/*.ts"],
+  "exclude": ["./node_modules"]
+}
