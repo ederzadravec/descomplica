@@ -5,6 +5,9 @@ import { getResponseType, PaginationResponse } from "./default";
 @ObjectType()
 export class Student {
   @Field()
+  id: number;
+
+  @Field()
   name: string;
 
   @Field()
@@ -12,6 +15,12 @@ export class Student {
 
   @Field()
   email: string;
+
+  @Field()
+  createdAt: number;
+
+  @Field()
+  updatedAt: number;
 }
 
 @ObjectType()

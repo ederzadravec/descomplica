@@ -10,6 +10,7 @@ import {
   StudentMutationResponse,
 } from "app/schemas/students";
 import { newDbDate } from "app/utils/date";
+import { onlyNumbers } from "app/utils/numbers";
 import { duplicatedFields } from "app/utils/responses";
 import { PaginationInput } from "app/schemas/default";
 
@@ -51,8 +52,13 @@ class StudentsResolver {
     @Arg("data") data: StudentCreate
   ): Promise<typeof StudentMutationResponse> {
     try {
+      const newStudent = {
+        ...data,
+        cpf: onlyNumbers(data.cpf),
+      };
+
       const hasFields = await this.model.hasAny({
-        cpf: data.cpf,
+        cpf: newStudent.cpf,
         email: data.email,
       });
 
@@ -61,7 +67,7 @@ class StudentsResolver {
       }
 
       const result = await this.model.create({
-        ...data,
+        ...newStudent,
         createdAt: newDbDate(),
         updatedAt: newDbDate(),
       });
@@ -85,9 +91,14 @@ class StudentsResolver {
     @Arg("data") data: StudentUpdate
   ): Promise<typeof StudentMutationResponse> {
     try {
+      const newStudent = {
+        ...data,
+        cpf: onlyNumbers(data.cpf),
+      };
+
       const hasFields = await this.model.hasAny(
         {
-          cpf: data.cpf,
+          cpf: newStudent.cpf,
           email: data.email,
         },
         { id: student }
@@ -98,11 +109,9 @@ class StudentsResolver {
       }
 
       const result = await this.model.updateOne(student, {
-        ...data,
+        ...newStudent,
         updatedAt: newDbDate(),
       });
-
-      console.log({ result });
 
       if (result) {
         return result;

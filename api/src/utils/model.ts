@@ -20,7 +20,9 @@ class Model<TypeModel> {
     const query = this.table();
 
     query.where((x) => {
-      x.where(removeNull(where));
+      for (const field in removeNull(where)) {
+        x.orWhere(field, where[field]);
+      }
     });
 
     if (notWhere) {
