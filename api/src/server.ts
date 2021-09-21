@@ -1,5 +1,5 @@
 import "reflect-metadata";
-import appConfig from "config/fastify";
+import appConfig from "app/config/fastify";
 
 const PORT: string = process.env.APP_PORT || "8000";
 const HOST: string = process.env.APP_HOST || "127.0.0.1";

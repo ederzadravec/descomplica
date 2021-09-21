@@ -12,15 +12,11 @@
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "node",
     "strict": false,
-    "baseUrl": "./src",
+    "baseUrl": "./",
     "sourceMap": true,
     "skipLibCheck": true,
     "paths": {
-      "types/*": ["@types/*"],
-      "config/*": ["config/*"],
-      "resolvers/*": ["resolvers/*"],
-      "schemas/*": ["schemas/*"],
-      "utils/*": ["utils/*"]
+      "app/*": ["src/*"]
     }
   },
   "include": ["./src/**/*.ts"],
