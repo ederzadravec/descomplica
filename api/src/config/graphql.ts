@@ -2,7 +2,7 @@ import { FastifyInstance, FastifyRequest, FastifyReply } from "fastify";
 import mercurius from "mercurius";
 import { buildSchema } from "type-graphql";
 
-import Students from "resolvers/students";
+import Students from "app/resolvers/students";
 
 const setup = async (app: FastifyInstance): Promise<void> => {
   const schema = await buildSchema({

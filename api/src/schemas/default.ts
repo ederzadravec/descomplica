@@ -1,10 +1,19 @@
-import { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify';
-import { ObjectType, Field, createUnionType } from 'type-graphql';
+import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
+import { ObjectType, InputType, Field, createUnionType } from "type-graphql";
 
 export class Context {
   app: FastifyInstance;
   req: FastifyRequest;
   reply: FastifyReply;
+}
+
+@InputType()
+export class PaginationInput {
+  @Field({ nullable: true })
+  page!: number;
+
+  @Field({ nullable: true })
+  perPage!: number;
 }
 
 @ObjectType()
@@ -19,7 +28,7 @@ export class PaginationResponse {
   page!: number;
 
   @Field()
-  limit!: number;
+  perPage!: number;
 }
 
 @ObjectType()

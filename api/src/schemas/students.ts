@@ -11,12 +11,28 @@ export class Student {
   cpf: string;
 
   @Field()
-  email: boolean;
+  email: string;
 }
 
+@ObjectType()
 export class Students extends PaginationResponse {
   @Field(() => [Student])
   data: Student[];
+}
+
+@InputType()
+export class StudentFilter {
+  @Field({ nullable: true })
+  id?: number;
+
+  @Field({ nullable: true })
+  name?: string;
+
+  @Field({ nullable: true })
+  cpf?: string;
+
+  @Field({ nullable: true })
+  email?: string;
 }
 
 @InputType()
@@ -28,7 +44,7 @@ export class StudentCreate {
   cpf: string;
 
   @Field()
-  email: boolean;
+  email: string;
 }
 
 @InputType()
@@ -40,7 +56,7 @@ export class StudentUpdate {
   cpf?: string;
 
   @Field({ nullable: true })
-  email?: boolean;
+  email?: string;
 }
 
 export const StudentMutationResponse = getResponseType(Student);
