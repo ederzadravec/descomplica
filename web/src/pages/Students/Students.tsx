@@ -9,6 +9,7 @@ const Students: React.FC = () => {
     <Switch>
       <Route path="/students" component={List} exact />
       <Route path="/students/new" component={Form} exact />
+      <Route path="/students/edit/:student" component={Form} exact />
     </Switch>
   );
 };

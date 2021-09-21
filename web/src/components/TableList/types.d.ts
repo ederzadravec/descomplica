@@ -7,7 +7,7 @@ export interface TableListConfigItem {
     xl?: number;
   };
   label: string;
-  dataPath: string | ((row: any) => string);
+  dataPath: string | ((row: any) => string | null);
 }
 
 export type TableListItemOnSelect = (row: any) => void;

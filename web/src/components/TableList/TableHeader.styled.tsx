@@ -5,7 +5,6 @@ export const Container = styled.div`
   background: ${({ theme }) => theme.palette.primary.main};
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  text-align: center;
 `;
 
 export const Label = styled.label`
@@ -13,5 +12,5 @@ export const Label = styled.label`
   font-size: 16px;
   font-weight: bold;
   color: ${({ theme }) => theme.palette.primary.text};
-  text-align: center;
+  padding: 0 12px;
 `;

@@ -4,6 +4,7 @@ import { ThemeProvider, createGlobalStyle } from 'styled-components';
 import { Default } from 'templates';
 import theme from 'assets/theme';
 
+import Apollo from './Apollo';
 import Routes from './Routes';
 
 const GlobalStyle = createGlobalStyle`
@@ -41,13 +42,15 @@ const GlobalStyle = createGlobalStyle`
 
 const App: React.FC = () => {
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
+    <Apollo>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
 
-      <Default>
-        <Routes />
-      </Default>
-    </ThemeProvider>
+        <Default>
+          <Routes />
+        </Default>
+      </ThemeProvider>
+    </Apollo>
   );
 };
 
